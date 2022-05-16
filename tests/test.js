@@ -8,6 +8,7 @@ const page = new Page();
 
 // Tests
 test('Text typing basics', async t => {
+    console.log('Text typing basics');
     await t
         .typeText(page.nameInput, 'Peter')                      // Type name
         .typeText(page.nameInput, 'Paker', { replace: true })   // Replace with last name
@@ -17,6 +18,7 @@ test('Text typing basics', async t => {
 
 
 test('Click an array of labels and then check their states', async t => {
+    console.log('Click an array of labels and then check their states');
     for (const feature of page.featureList) {
         await t
             .click(feature.label)
@@ -26,6 +28,7 @@ test('Click an array of labels and then check their states', async t => {
 
 
 test('Dealing with text using keyboard', async t => {
+    console.log('Dealing with text using keyboard');
     await t
         .typeText(page.nameInput, 'Peter Parker')           // Type name
         .click(page.nameInput, { caretPos: 5 })             // Move caret position
@@ -37,6 +40,7 @@ test('Dealing with text using keyboard', async t => {
 
 
 test('Moving the slider', async t => {
+    console.log('Moving the slider');
     const initialOffset = await page.slider.handle.offsetLeft;
 
     await t
@@ -47,6 +51,7 @@ test('Moving the slider', async t => {
 
 
 test('Dealing with text using selection', async t => {
+    console.log('Dealing with text using selection');
     await t
         .typeText(page.nameInput, 'Test Cafe')
         .selectText(page.nameInput, 7, 1)
@@ -56,6 +61,7 @@ test('Dealing with text using selection', async t => {
 
 
 test('Handle native confirmation dialog', async t => {
+    console.log('Handle native confirmation dialog');
     await t
         .setNativeDialogHandler(() => true)
         .click(page.populateButton);
@@ -71,6 +77,7 @@ test('Handle native confirmation dialog', async t => {
 
 
 test('Pick option from select', async t => {
+    console.log('Pick option from select')
     await t
         .click(page.interfaceSelect)
         .click(page.interfaceSelectOption.withText('Both'))
@@ -79,6 +86,7 @@ test('Pick option from select', async t => {
 
 
 test('Filling a form', async t => {
+    console.log('Filling a form')
     // Fill some basic fields
     await t
         .typeText(page.nameInput, 'Bruce Wayne')
